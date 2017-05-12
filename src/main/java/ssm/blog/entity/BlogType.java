@@ -1,5 +1,6 @@
 package ssm.blog.entity;
 
+import org.apache.ibatis.type.Alias;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;

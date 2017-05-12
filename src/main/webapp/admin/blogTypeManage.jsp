@@ -24,7 +24,7 @@
         //打开对话框并且设置标题
         $("#dlg").dialog("open").dialog("setTitle", "添加博客类别信息");
         //将url设置为添加
-        url = "${blog}/admin/blogType/save.do";
+        url = "${blog}/admin/blogtype/add";
     }
     /**
      * 打开修改博客类别信息对话框

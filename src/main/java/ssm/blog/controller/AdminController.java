@@ -1,13 +1,13 @@
 package ssm.blog.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.sun.tracing.dtrace.Attributes;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import ssm.blog.entity.BlogType;
+import ssm.blog.service.imp.BlogServiceImp;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,6 +18,9 @@ import java.util.List;
  */
 @Controller
 public class AdminController {
+
+    @Autowired
+    BlogServiceImp blogServiceImp;
 
     @RequestMapping("/admin/menu")
     public ModelAndView adminIndex(){
@@ -58,37 +61,29 @@ public class AdminController {
     @ResponseBody
     public String blogtype3(@RequestParam(value = "page", required = true) String page,
                             @RequestParam(value = "rows", required = true) String rows){
+        List<BlogType> blogTypes = blogServiceImp.getAllBlogType();
         JSONObject jsonObject = new JSONObject();
-        List<BlogType> list = new ArrayList<BlogType>();
-        BlogType blogType = new BlogType("java",1);
-        BlogType blogType2 = new BlogType("python",2);
-        BlogType blogType3 = new BlogType("javascript",3);
-        BlogType blogType4 = new BlogType("c++",4);
-        BlogType blogType5 = new BlogType("c++",4);
-        list.add(blogType);
-        list.add(blogType2);
-        list.add(blogType3);
-        list.add(blogType4);
-        list.add(blogType5);
 
-        List<BlogType> list2 = new ArrayList<BlogType>();
-        BlogType blogType6 = new BlogType("java aa",1);
-        BlogType blogType7 = new BlogType("python aa",2);
-        BlogType blogType8 = new BlogType("javascript aa",3);
-        BlogType blogType9 = new BlogType("c++ aa",4);
-        BlogType blogType10 = new BlogType("c++ aa",4);
-        list2.add(blogType6);
-        list2.add(blogType7);
-        list2.add(blogType8);
-        list2.add(blogType9);
-        list2.add(blogType10);
-
-        jsonObject.put("total",100);
-        if("1".equals(page)){
-            jsonObject.put("rows",list);
-        }else {
-            jsonObject.put("rows",list2);
-        }
+        jsonObject.put("total",blogTypes.size());
+        jsonObject.put("rows",blogTypes);
         return jsonObject.toString();
+    }
+
+
+    @RequestMapping(value = "admin/blogtype/add", method = RequestMethod.POST)
+    @ResponseBody
+    public String addBlogtype(@ModelAttribute BlogType blogType){
+        int result = blogServiceImp.addBlogType(blogType);
+        JSONObject jsonObject = new JSONObject();
+        if(result > 0){
+            jsonObject.put("success",true);
+            System.out.println("-------------------------add blog type true-------------------");
+            return jsonObject.toString();
+        }else {
+            jsonObject.put("success",false);
+            System.out.println("-------------------------add blog type  false-------------------");
+            return jsonObject.toString();
+        }
+
     }
 }
