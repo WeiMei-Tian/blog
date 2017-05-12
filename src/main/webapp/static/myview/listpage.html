@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Example of Fixed Layout with Bootstrap version 2.0 from w3cschool.cc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Example of Fixed Layout with Bootstrap version 2.0 from w3cschool.cc">
+    <meta name="author" content="">
+
+   <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/example-fixed-layout.css">
+		<link rel="stylesheet" href="/bootstrap3/css/bootstrap.css">
+
+	<style>
+		
+		.data_list{
+	border: 1px solid #E5E5E5;
+	padding: 10px;
+	background-color: #FDFDFD;
+	margin-top: 0px;
+	margin-bottom: 10px;
+}
+
+.data_list .data_list_title{
+	font-size: 15px;
+	font-weight: bold;
+	border-bottom: 1px solid #E5E5E5;
+	padding-bottom: 10px;
+	padding-top: 5px;
+}
+
+.data_list .data_list_title img{
+	margin-top: 3px;
+	vertical-align: top;
+}
+
+.data_list .datas ul {
+	list-style-type: none;
+	padding-left: 15px;
+}
+
+.data_list .datas ul li {
+	margin-top: 10px;
+}
+
+.data_list .data_list_title .datas{
+	padding: 5px;
+}
+
+.datas .title {
+	display:block;
+	line-height: 1.5;
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+	padding-bottom: 10px;
+	font:18px 'microsoft yahei';
+}
+
+
+.datas .title a{
+	color: #800040;	
+	border-bottom: 1px dashed #ddd;
+	margin: 0 10px;
+}
+
+.datas .img img{
+	padding-top: 20px;
+	max-width: 150px;
+	max-height: 150px;
+}
+
+.datas .title img{
+	max-width: 50px;
+	max-height: 50px;
+}
+
+.datas .summary{
+	display: block;
+	font-size: 24px;
+	line-height: 19.5px;
+	padding-top: 5px;
+	color: #666;
+	font-size: 14px;
+}
+
+.datas .info{
+	display: block;
+	margin-top: 20px;
+	text-align: right;
+	padding-right: 30px;
+}
+
+</style>
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="leaderboard">
+        <h1>w3cschool Web Store</h1>
+        <p>Try and purchase HTML5, JS, Ruby, PHP-MySQL based web apps to enhance your productivity at affordable price.</p>
+        <p><a class="btn btn-success btn-large">Sign Up for a 30 day free trial</a></p>
+      </div>
+
+     <div class="data_list">
+		  		<div class="data_list_title">
+					<img src="img/HBuilder.png"/>&nbsp;最新博客
+				</div>	
+				<div class="datas">
+					<ul>
+														
+						<li style="margin-bottom: 30px">
+						  	<span class="title">
+						  		<img alt="文章类型" src="img/background.jpg">
+						  		<a href="#">这是一篇测试博客</a>
+						  	</span>
+						  	<span class="summary">摘要: 这是用来测试的静态数据，为了多搞一点数据，于是我开始喋喋不休的说一些废话，包括我很帅之类的，虽然我一直强调自己要低调，但不知为何，自己的容颜非得水电费他委托方玩儿为首的繁体去玩儿太费钱戊二醛 安慰她去问他轻微而提前问题 sdfwe we rwerqwer werqwerqwerqwrqwr w34rqwr q3和内心背道而驰....</span>
+						  	<span class="img">
+						  		
+							  		<a href="#"><img src="img/background.jpg" title="dog" alt="dog.jpg" width="823" height="489" style="width: 823px; height: 489px;"></a>
+							  		<a href="#"><img src="img/background.jpg" title="dog" alt="dog.jpg" width="823" height="489" style="width: 823px; height: 489px;"></a>
+							  		<a href="#"><img src="img/background.jpg" title="dog" alt="dog.jpg" width="823" height="489" style="width: 823px; height: 489px;"></a>
+							  		&nbsp;&nbsp;
+						  		
+						  	</span>
+						  	<span class="info">
+						  		<font color="#999">2016-07-03 10:39</font> &nbsp;&nbsp;
+						  		<font color="#33a5ba"><a href="#">阅读</a><font color="#999">(404)</font>&nbsp;&nbsp;</font>
+						  		<font color="#33a5ba"><a href="#">评论</a><font color="#999">(8)</font>&nbsp;&nbsp;</font>  	
+						  	</span>
+						</li>
+						<hr style="height:5px;border:none;border-top:1px dashed gray;padding-bottom:10px;" />													
+						
+						<li style="margin-bottom: 30px">
+					  		<span class="title">
+					  		<img alt="文章类型" src="img/background.jpg">
+					  		<a href="#">这是一篇测试博客</a>
+					  		</span>
+					  		<span class="summary">摘要: 这是用来测试的静态数据，为了多搞一点数据，于是我开始喋喋不休的说一些废话，包括我很帅之类的，虽然我一直强调自己要低调，但不知为何，自己的容颜非得和内心背道而驰....</span>
+					  	
+						  	<span class="img">
+						  		
+							  		<a href="#"><img src="img/background.jpg" title="dog.jpg" alt="dog.jpg" width="823" height="489" style="width: 823px; height: 489px;"></a>
+							  		<a href="#"><img src="img/background.jpg" title="dog.jpg" alt="dog.jpg" width="823" height="489" style="width: 823px; height: 489px;"></a>
+							  		<a href="#"><img src="img/background.jpg" title="dog.jpg" alt="dog.jpg" width="823" height="489" style="width: 823px; height: 489px;"></a>
+							  		&nbsp;&nbsp;
+						  		
+						  	</span>
+						  	<span class="info">
+						  		<font color="#999">2016-07-03 10:39</font> &nbsp;&nbsp;
+						  		<font color="#33a5ba"><a href="#">阅读</a><font color="#999">(404)</font>&nbsp;&nbsp;</font>
+						  		<font color="#33a5ba"><a href="#">评论</a><font color="#999">(8)</font>&nbsp;&nbsp;</font>	  	
+						  	</span>
+						</li>
+						<hr style="height:5px;border:none;border-top:1px dashed gray;padding-bottom:10px;" />													
+						
+						<li style="margin-bottom: 30px">
+						  	<span class="title">
+						  		<img alt="文章类型" src="img/background.jpg">
+						  		<a href="#">这是一篇测试博客</a>
+						  	</span>
+						  	<span class="summary">摘要: 这是用来测试的静态数据，为了多搞一点数据，于是我开始喋喋不休的说一些废话，包括我很帅之类的，虽然我一直强调自己要低调，但不知为何，自己的容颜非得和内心背道而驰....</span>
+						  	<span class="img">
+						  		
+							  		<a href="#"><img src="img/background.jpg" title="dog.jpg" alt="dog.jpg" width="823" height="489" style="width: 823px; height: 489px;"></a>
+							  		<a href="#"><img src="img/background.jpg" title="dog.jpg" alt="dog.jpg" width="823" height="489" style="width: 823px; height: 489px;"></a>
+							  		<a href="#"><img src="img/background.jpg" title="dog.jpg" alt="dog.jpg" width="823" height="489" style="width: 823px; height: 489px;"></a>
+							  		&nbsp;&nbsp;
+						  		
+						  	</span>
+						  	<span class="info">
+						  		<font color="#999">2016-07-03 10:39</font> &nbsp;&nbsp;
+						  		<font color="#33a5ba"><a href="#">阅读</a><font color="#999">(404)</font>&nbsp;&nbsp;</font>
+						  		<font color="#33a5ba"><a href="#">评论</a><font color="#999">(8)</font>&nbsp;&nbsp;</font>  	
+						  	</span>
+						</li>
+						<hr style="height:5px;border:none;border-top:1px dashed gray;padding-bottom:10px;" />													
+					</ul>
+				</div>  		
+		  	</div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; Company 2012</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+  </body>
+</html>
