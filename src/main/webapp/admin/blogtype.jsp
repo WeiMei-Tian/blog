@@ -47,6 +47,27 @@
             });
         }
 
+        /**
+         * 打开修改博客类别信息对话框
+         */
+        function openBlogTypeModifyDialog() {
+            //获取选中要修改的行
+            var selectedRows = $("#dg").datagrid("getSelections");
+            //确保被选中行只能为一行
+            if(selectedRows.length != 1) {
+                $.messager.alert("系统提示", "请选择一个要修改的博客类别");
+                return;
+            }
+            //获取选中行id
+            var row = selectedRows[0];
+            //打开对话框并且设置标题
+            $("#dlg").dialog("open").dialog("setTitle", "修改博客类别信息");
+            //将数组回显对话框中
+            $("#fm").form("load", row);//会自动识别name属性，将row中对应的数据，填充到form表单对应的name属性中
+            //在url中添加id 后台就能识别是更新操作
+            url = "${blog}/admin/blogType/edit?id=" + row.id;
+        }
+
     </script>
 </head>
 <body>
@@ -93,7 +114,7 @@
         </div>
     </div>
 
-    <div id="dlg" class="easyui-dialog" style="width:500px; height:180px; padding:10px 20px"
+    <div id="dlg" class="easyui-dialog" style="width:500px; height:240px; padding:10px 20px"
          closed="true" buttons="#dlg-buttons">
         <form id="fm" method="post">
             <table cellspacing="8px">

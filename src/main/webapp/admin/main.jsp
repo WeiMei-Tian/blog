@@ -38,6 +38,24 @@
                 })
             }
         }
+
+        function openTabByUrl(text,url,icon) {
+            //判断当前选项卡是否存在
+            if($('#tabs').tabs('exists',text)){
+                //如果存在 显示
+                $("#tabs").tabs("select",text);
+            }else{
+                //如果不存在 则新建一个
+                $("#tabs").tabs('add',{
+                    title:text,
+                    closable:true,      //是否允许选项卡摺叠。
+                    iconCls:icon,    //显示图标
+                    content:"<iframe frameborder=0 scrolling='auto' style='width:100%;height:100%' src='${blog}/admin/"+url+"'></iframe>"
+                    //url 远程加载所打开的url
+                })
+            }
+        }
+
         function openPasswordModifyDialog() {
             $("#dlg").dialog("open").dialog("setTitle","修改密码");
         }
@@ -99,7 +117,7 @@
 <div region="west" style="width: 200px" title="导航菜单" split="true">
     <div class="easyui-accordion" data-options="fit:true,border:false">
         <div title="常用操作" data-options="selected:true,iconCls:'icon-item'" style="padding: 10px">
-            <a href="javascript:openTab('写博客','writeBlog.jsp','icon-writeblog')" class="easyui-linkbutton"
+            <a href="javascript:openTab('写博客','writeblog','icon-writeblog')" class="easyui-linkbutton"
                data-options="plain:true,iconCls:'icon-writeblog'" style="width: 150px">写博客</a>
             <a href="javascript:openTab('评论审核','commentReview.jsp','icon-review')" class="easyui-linkbutton"
                data-options="plain:true,iconCls:'icon-review'" style="width: 150px">评论审核</a>

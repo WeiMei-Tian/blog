@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace指向我们的dao所在的地址 -->
+<mapper namespace="ssm.blog.dao.BlogDao">
+
+    <resultMap id="blogType" type="ssm.blog.entity.Blog">
+    </resultMap>
+
+    <insert id="addBlog">
+        INSERT INTO t_blog(title,summary,releaseDate,content,keyWord,type_id) VALUES (#{blog.title},#{blog.summary},#{blog.releaseDate},#{blog.content},#{blog.keyWord},#{blog.blogType.id})
+    </insert>
+</mapper>

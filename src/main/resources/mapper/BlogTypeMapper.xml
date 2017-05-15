@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace指向我们的dao所在的地址 -->
-<mapper namespace="ssm.blog.dao.BlogDao">
+<mapper namespace="ssm.blog.dao.BlogTypeDao">
 
     <resultMap id="blogType" type="ssm.blog.entity.BlogType">
     </resultMap>
@@ -15,4 +15,17 @@
     <select id="getAllBlogType" resultMap="blogType">
         SELECT * FROM t_blogtype
     </select>
+
+    <select id="getBlogTypeByPage" resultMap="blogType">
+        SELECT * FROM t_blogtype LIMIT #{offset},#{rows}
+    </select>
+
+    <select id="getBlogTypeAllCount" resultType="java.lang.Integer">
+        SELECT COUNT(id) FROM
+            t_blogtype;
+    </select>
+
+    <update id="editBlogTypeById" parameterType="blogType">
+        UPDATE t_blogtype SET typeName = #{blogType.typeName},orderNum = #{blogType.orderNum} WHERE id=#{blogType.id}
+    </update>
 </mapper>

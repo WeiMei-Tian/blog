@@ -83,7 +83,7 @@
 			} else if (content == null || content == '') {
 				$.messager.alert("系统提示", "请编辑博客内容！");
 			} else {
-				$.post("${blog}/admin/blog/save.do",
+				$.post("${blog}/admin/blog/addnew",
 						{
 							'title' : title,
 							'blogType.id' : blogTypeId,
@@ -92,11 +92,19 @@
 							'keyWord' : keyWord,
 							'contentNoTag' : contentNoTag
 						}, function(result) {
-							if (result.success) {
+							alert(result);
+							alert(result.date());
+							console.info('++++++++++++',result.code);
+							result = eval(result);
+							console.info('------------',result.code);
+							if (result.code == 200) {
+								console.info(result.code);
 								$.messager.alert("系统提示", "博客发布成功！");
 								clearValues();
 							} else {
+								console.info(result.code);
 								$.messager.alert("系统提示", "博客发布失败！");
+								console.info(result);
 							}
 						}, "json");
 			}

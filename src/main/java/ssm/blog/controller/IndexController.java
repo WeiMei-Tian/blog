@@ -33,13 +33,10 @@ public class IndexController {
      * @Description 请求主页
      * @return
      */
-    @RequestMapping("/index")
-    public ModelAndView index(
-            HttpServletRequest request) throws Exception {
-
+    @RequestMapping("/admin")
+    public ModelAndView admin(){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("index_new");
+        modelAndView.setViewName("admin/main");
         return modelAndView;
-
     }
 }
