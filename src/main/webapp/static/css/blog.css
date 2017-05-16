@@ -37,6 +37,10 @@
 	margin-top: 10px;
 }
 
+.collapse ul li{
+	margin-left: 10px;
+}
+
 .data_list .data_list_title .datas{
 	padding: 5px;
 }
@@ -57,7 +61,7 @@
 }
 
 .datas .summary{
-	display:block;	
+	display:block;
 	line-height: 19.5px;
 	padding-top: 5px;
 	color: #666;
@@ -65,10 +69,10 @@
 	margin: -10px 0 10px 0;
 }
 
-.datas .img{
-	display:block;
-	clear:both;
-}
+/*.datas .img{*/
+	/*display:block;*/
+	/*clear:both;*/
+/*}*/
 
 .datas img{
 	padding:10px;

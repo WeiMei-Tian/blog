@@ -69,4 +69,11 @@ public class BlogController {
         jsonObject.put("rows",blogs);
         return jsonObject.toString();
     }
+
+    @RequestMapping(value = "admin/blogDetial/{id}", method = RequestMethod.GET)
+    public ModelAndView blogDetial(@PathVariable int id){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("foreground/blog/blogDetail");
+        return modelAndView;
+    }
 }

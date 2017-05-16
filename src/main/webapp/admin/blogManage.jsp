@@ -15,7 +15,7 @@
      * @returns {string}
      */
 	function formatTitle(val, row) {
-		return "<a target='_blank' href='${blog}/blog/articles/"+row.id+".html'>"+val+"</a>";
+		return "<a target='_blank' href='${blog}/admin/blogDetial/"+row.id+"'>"+val+"</a>";
 	}
 
     /**
