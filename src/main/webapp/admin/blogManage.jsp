@@ -98,7 +98,7 @@
 
 <body style="margin: 1px; font-family: microsoft yahei">
 <table id="dg" title="博客管理" class="easyui-datagrid" fitColumns="true" pagination="true"
-	url="${blog}/admin/blog/listBlog.do" toolbar="#tb">
+	url="${blog}/admin/blog/listBlog" toolbar="#tb">
 	<thead>
 		<tr>
 			<th field="cb" checkbox="true" align="center"></th>

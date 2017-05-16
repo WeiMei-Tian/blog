@@ -19,4 +19,6 @@ public interface BlogTypeDao {
     int getBlogTypeAllCount();
 
     int editBlogTypeById(@Param("blogType")BlogType blogType);
+
+    BlogType getById(@Param("id") int id);
 }

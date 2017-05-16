@@ -28,4 +28,9 @@
     <update id="editBlogTypeById" parameterType="blogType">
         UPDATE t_blogtype SET typeName = #{blogType.typeName},orderNum = #{blogType.orderNum} WHERE id=#{blogType.id}
     </update>
+
+    <select id="getById" resultType="blogType">
+        SELECT * FROM t_blogtype
+        WHERE id = #{id}
+    </select>
 </mapper>

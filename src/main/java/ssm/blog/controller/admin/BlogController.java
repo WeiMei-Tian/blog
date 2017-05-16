@@ -39,18 +39,34 @@ public class BlogController {
     @RequestMapping(value = "/admin/blog/addnew", method = RequestMethod.POST)
     @ResponseBody
     public String addBlog(@ModelAttribute Blog blog){
-        logger.error("-------- aaaaaaaaaaaaaaaaaaaa --------" + blog.getTitle());
         Date current = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         String releaseDate = dateFormat.format(current.getTime());
         blog.setReleaseDate(current);
-        int result = blogServiceImp.addBlog(blog);
         JSONObject jsonObject = new JSONObject();
-        if(result > 0){
-            jsonObject.put("code",200);
-        }else {
+        try {
+            int result = blogServiceImp.addBlog(blog);
+            if(result > 0){
+                jsonObject.put("code",200);
+            }else {
+                jsonObject.put("code",100);
+            }
+        }catch (Exception e){
             jsonObject.put("code",100);
         }
+        return jsonObject.toString();
+    }
+
+    @RequestMapping(value = "/admin/blog/listBlog", method = RequestMethod.POST)
+    @ResponseBody
+    public String blogs(@RequestParam(value = "page", required = true) String page,
+                            @RequestParam(value = "rows", required = true) String rows){
+        List<Blog> blogs = blogServiceImp.getBlogsByPage((Integer.parseInt(page) - 1)*Integer.parseInt(rows),Integer.parseInt(rows));
+        logger.info("==============================" + blogs.get(0).getBlogType().getTypeName());
+        JSONObject jsonObject = new JSONObject();
+        int total = blogServiceImp.getBlogAllCount();
+        jsonObject.put("total",total);
+        jsonObject.put("rows",blogs);
         return jsonObject.toString();
     }
 }

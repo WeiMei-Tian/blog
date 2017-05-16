@@ -4,10 +4,29 @@
 <!-- namespace指向我们的dao所在的地址 -->
 <mapper namespace="ssm.blog.dao.BlogDao">
 
-    <resultMap id="blogType" type="ssm.blog.entity.Blog">
+    <resultMap type="ssm.blog.entity.Blog" id="blog">
+        <id column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="summary" property="summary"/>
+        <result column="releaseDate" property="releaseDate"/>
+        <result column="content" property="content"/>
+        <!--<association property="blogType" javaType="ssm.blog.entity.BlogType">-->
+            <!--<result column="type_id" property="id"/>-->
+        <!--</association>-->
+        <association property="blogType" column="type_id" select="ssm.blog.dao.BlogTypeDao.getById">
+        </association>
     </resultMap>
 
     <insert id="addBlog">
         INSERT INTO t_blog(title,summary,releaseDate,content,keyWord,type_id) VALUES (#{blog.title},#{blog.summary},#{blog.releaseDate},#{blog.content},#{blog.keyWord},#{blog.blogType.id})
     </insert>
+
+    <select id="getBlogsByPage" resultMap="blog">
+        SELECT * FROM t_blog LIMIT #{offset},#{rows}
+    </select>
+
+    <select id="getBlogAllCount" resultType="java.lang.Integer">
+        SELECT COUNT(id)
+        FROM t_blog
+    </select>
 </mapper>

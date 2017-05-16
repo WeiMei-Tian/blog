@@ -6,6 +6,8 @@ import ssm.blog.dao.BlogDao;
 import ssm.blog.entity.Blog;
 import ssm.blog.service.BlogService;
 
+import java.util.List;
+
 /**
  * Created by liwei on 2017/5/15.
  */
@@ -17,5 +19,13 @@ public class BlogServiceImp implements BlogService {
 
     public int addBlog(Blog blog) {
         return blogDao.addBlog(blog);
+    }
+
+    public List<Blog> getBlogsByPage(int offset, int rows) {
+        return blogDao.getBlogsByPage(offset,rows);
+    }
+
+    public int getBlogAllCount() {
+        return blogDao.getBlogAllCount();
     }
 }

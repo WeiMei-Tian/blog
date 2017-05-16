@@ -92,13 +92,8 @@
 							'keyWord' : keyWord,
 							'contentNoTag' : contentNoTag
 						}, function(result) {
-							alert(result);
-							alert(result.date());
-							console.info('++++++++++++',result.code);
 							result = eval(result);
-							console.info('------------',result.code);
 							if (result.code == 200) {
-								console.info(result.code);
 								$.messager.alert("系统提示", "博客发布成功！");
 								clearValues();
 							} else {
@@ -109,6 +104,9 @@
 						}, "json");
 			}
 		}
+
+
+
 		function clearValues() {
 			$("#title").val("");
 			$("#blogTypeId").combobox("setValue", "");
